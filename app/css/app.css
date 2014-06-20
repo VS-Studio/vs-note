@@ -1,0 +1,46 @@
+/* app css stylesheet */
+
+html,body{ 
+    margin:0px; 
+    height:100%; 
+} 
+
+.menu {
+
+}
+
+.menu > li {
+  display: inline;
+}
+
+
+
+#wrap{
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    height:100%;
+}
+
+#top{
+    border-bottom: 0.1em solid black;
+    background: #ccccff;
+}
+
+#body{
+    display: -webkit-box;
+    -webkit-box-flex:1;
+}
+
+
+#body #left{
+    width:20%;
+    min-width: 150px;
+    background:green;
+    border-right: 1px solid black;
+
+}
+
+#body #content{
+    -webkit-box-flex:1;
+    background:#ffcccc;
+}
