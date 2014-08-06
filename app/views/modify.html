@@ -1,9 +1,9 @@
-<form name="addNote" action="#/oper/add" method="post">
+<form name="addNote" method="post" ng-submit="submit()" ng-controller="Add">
 
-<p><input name="title" value="{{title}}"/></p>
+    <p><input name="title" ng-model="title"/></p>
+    <p><input name="category" ng-model="category"/></p>
 <p>
-    <textarea name="content">
-    {{content}}
+    <textarea ng-model="content" name="content">
     </textarea>
 </p>
 <p><input value="submit" type="submit" /></p>

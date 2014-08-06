@@ -18,7 +18,14 @@ myAppServices.factory('Datas', ['$resource',
   }]);
   
 
- 
- 
+
+myAppServices.factory('Store', ['$resource',
+  function($resource){
+    return $resource('http://114.215.202.3:8800/comapi/data/note/:method', {}, {
+      create: {method:'POST',params:{method:'_create'}},
+      get: {method:'POST',params:{method:'_read'}},
+      delete: {method:'POST',params:{method:'_delete'}},
+    });
+}]);
 
  
