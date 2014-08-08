@@ -19,9 +19,9 @@
     <div id="body">
         <div id="left" ng-controller="Left">
             <ul>
-                <li ng-repeat="c in categorys"><a href="#/view/{{c.title}}">{{c.title}}</a></li>
-                <li ng-show="newcatshow" ><input type="text" ng-model="category" style="width:90%" ng-click="newClass(event)" /><b ng-click="newcatshow=false">X</b></li>
-                <li><a href="javascript:void(0)" ng-click="newcatshow=true">New Class</a></li>
+                <li ng-repeat="c in categorys['data']"><a href="#/view/{{c.category}}">{{c.category}}</a></li>
+                <li ng-show="catInput" ><input type="text" ng-model="category" style="width:80%" contenteditable="true" /> <b ng-click="catInput=false">X</b></li>
+                <li><a href="javascript:void(0)" ng-click="catInput=true">New Class</a></li>
             </ul>
         </div>
         <div ng-view id="content"></div>

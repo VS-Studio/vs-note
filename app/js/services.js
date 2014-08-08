@@ -8,18 +8,10 @@
 
 var myAppServices = angular.module('note.services', ['ngResource']);
 
-
-myAppServices.factory('Datas', ['$resource',
-  function($resource){
-    return $resource('models/:cat.json', {}, {
-      category: {method:'GET', params:{cat:'category'}, isArray:true},
-      list: {method:'GET', isArray:true},
-    });
-  }]);
   
 
 
-myAppServices.factory('Store', ['$resource',
+myAppServices.factory('Notes', ['$resource',
   function($resource){
     return $resource('http://114.215.202.3:8800/comapi/data/note/:method', {}, {
       create: {method:'POST',params:{method:'_create'}},
@@ -29,3 +21,11 @@ myAppServices.factory('Store', ['$resource',
 }]);
 
  
+myAppServices.factory('Categories', ['$resource',
+  function($resource){
+    return $resource('http://114.215.202.3:8800/comapi/data/category/:method', {}, {
+      create: {method:'POST',params:{method:'_create'}},
+      get: {method:'POST',params:{method:'_read'}},
+      delete: {method:'POST',params:{method:'_delete'}},
+    });
+}]);
