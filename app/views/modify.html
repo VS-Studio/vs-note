@@ -1,11 +1,23 @@
-<form name="addNote" method="post" ng-submit="submit()" ng-controller="Add">
+<form role="form" name="addNote" method="post" ng-submit="submit()" ng-controller="Add">
 
-    <p><input name="title" ng-model="title"/></p>
-    <p><input name="category" ng-model="category"/></p>
-<p>
-    <textarea ng-model="content" name="content">
-    </textarea>
-</p>
-<p><input value="submit" type="submit" /></p>
+    <div class="form-group">
+        <label for="inputTitle" >Title</label>
+        <input name="title" id="inputTitle" class="form-control" ng-model="title" placeholder="Enter Title">
+    </div>
+
+    <div class="form-group">
+        <label for="inputCategory">Category</label>
+        <select class="form-control" name="category" ng-model="category"><option ng-repeat="c in categorys['data']">{{c.category}}</option></select>
+    </div>
+
+    <div class="form-group">
+        <label for="inputContent" >Content</label>
+        <textarea class="form-control" ng-model="content" name="content"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="inputContent" ></label>
+        <input value="submit" type="submit" class="btn btn-default" />
+    </div>
 
 </form>

@@ -8,7 +8,7 @@
 
 var myAppServices = angular.module('note.services', ['ngResource']);
 
-  
+
 
 
 myAppServices.factory('Notes', ['$resource',
@@ -20,7 +20,7 @@ myAppServices.factory('Notes', ['$resource',
     });
 }]);
 
- 
+
 myAppServices.factory('Categories', ['$resource',
   function($resource){
     return $resource('http://114.215.202.3:8800/comapi/data/category/:method', {}, {

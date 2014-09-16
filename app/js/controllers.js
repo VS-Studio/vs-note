@@ -32,8 +32,11 @@ module.controller('About', ['$scope', '$routeParams', function($scope, $routePar
         
     }]);
 
-module.controller('Add', ['$scope', '$routeParams', 'Notes', function($scope, $routeParams, Notes) {
+module.controller('Add', ['$scope', '$routeParams', 'Notes', 'Categories', function($scope, $routeParams, Notes, Categories) {
         $scope.page = $routeParams.page;
+
+        $scope.categorys = Categories.get();
+        
 
         $scope.submit = function(){
             var title = $scope.title;
@@ -45,6 +48,7 @@ module.controller('Add', ['$scope', '$routeParams', 'Notes', function($scope, $r
                 alert("input error.");
                 return;
             }
+            //如何刷新Category列表 TODO
             
             Notes.create({title: title,content:content,category: category}, function(con) {
                 alert(con.msg);
@@ -55,22 +59,3 @@ module.controller('Add', ['$scope', '$routeParams', 'Notes', function($scope, $r
 
 
 
-module.directive("contenteditable", function (Categories) {
-        return {
-            link:function ($scope, ele, attrs, ctrl) {
-                var ENTER_KEY = 13;
-                $scope.catInput = false;
-                ele.bind("keyup",function(event) {
-                    if(event.keyCode === ENTER_KEY)
-                    {
-                        console.log($scope.category);
-                        Categories.create({category:$scope.category}, function(con) {
-                            $scope.category = '';
-                            $scope.catInput = false;
-                            alert(con.msg);
-                        });
-                    }
-                });
-            }
-        };
-    });
